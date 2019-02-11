@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ace-ventura-dashboard
+  namespace: kube-system
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: ace-ventura.net
+    http:
+      paths:
+      - path: /dashboard
+        backend:
+          serviceName: kubernetes-dashboard
+          servicePort: 80
+

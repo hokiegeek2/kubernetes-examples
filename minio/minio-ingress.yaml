@@ -1,0 +1,9 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: minio-ingress
+spec:
+  backend:
+    serviceName: minio-service
+    servicePort: 31070
+
