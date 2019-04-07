@@ -1,13 +1,13 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: kafka-pv-1
+  name: kafka-pv-2
   labels:
-    type: local
+    type: local-kafka
 spec:
   storageClassName: local-storage
   capacity:
-    storage: 10Gi
+    storage: 5Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain

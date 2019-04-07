@@ -177,6 +177,9 @@ spec:
     - metadata:
         name: kafka-pv
       spec:
+        selector:
+          matchLabels:
+            type: local-kafka
         accessModes:
         - ReadWriteOnce
         storageClassName: local-storage

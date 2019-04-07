@@ -7,6 +7,8 @@ metadata:
     app: zk-svc
 spec:
   ports:
+  - port: 2181
+    name: client
   - port: 2888
     name: server
   - port: 3888
@@ -92,7 +94,7 @@ spec:
           name: leader-election
         env:
         - name : ZK_REPLICAS
-          value: "1"
+          value: "3"
         - name : ZK_HEAP_SIZE
           valueFrom:
             configMapKeyRef:
@@ -134,6 +136,8 @@ spec:
           value: "2888"
         - name: ZK_ELECTION_PORT
           value: "3888"
+        - name: ZK_ENSEMBLE
+          value: "zk-0,zk-1,zk-2"
         command:
         - sh
         - -c
@@ -157,6 +161,9 @@ spec:
     - metadata:
         name: zk-pv
       spec:
+        selector:
+          matchLabels:
+            type: local-zk
         accessModes:
         - ReadWriteOnce
         storageClassName: local-storage
