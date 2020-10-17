@@ -1,18 +1,18 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: zk-pv-3
+  name: zk-pv-0
   labels:
     type: local-zk
 spec:
   storageClassName: local-storage
   capacity:
-    storage: 2Gi
+    storage: 1Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   local:
-    path: /mnt/k8s/zookeeper/data
+    path: /mnt/k8s/zookeeper/log
   nodeAffinity:
     required:
       nodeSelectorTerms:

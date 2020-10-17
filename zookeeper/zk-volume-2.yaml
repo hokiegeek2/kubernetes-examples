@@ -7,12 +7,12 @@ metadata:
 spec:
   storageClassName: local-storage
   capacity:
-    storage: 2Gi
+    storage: 1Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   local:
-    path: /mnt/k8s/zookeeper
+    path: /mnt/k8s/zookeeper/log
   nodeAffinity:
     required:
       nodeSelectorTerms:

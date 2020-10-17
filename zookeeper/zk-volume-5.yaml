@@ -1,7 +1,7 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: zk-pv-3
+  name: zk-pv-5
   labels:
     type: local-zk
 spec:
